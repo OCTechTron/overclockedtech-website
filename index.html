@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overclocked Technologies | IT Services & Networking | McDonough, GA</title>
+    <meta name="description" content="Overclocked Technologies — 27+ years of computer repair, networking, low voltage, and fiber installation. Family owned in McDonough, GA. Microsoft & CompTIA certified.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific overrides */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            background: var(--grey-800);
+            border: 1px solid var(--grey-700);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--blue);
+            box-shadow: 0 0 30px var(--blue-glow);
+            transform: translateY(-2px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--white);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--grey-400);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .stat {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--blue);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--grey-400);
+            font-weight: 500;
+        }
+
+        .certs {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: var(--grey-800);
+            border: 1px solid var(--grey-700);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--grey-300);
+            font-weight: 600;
+        }
+
+        .cert-badge span {
+            color: var(--blue);
+        }
+
+        .ai-banner {
+            background: linear-gradient(135deg, var(--grey-800) 0%, rgba(91, 164, 217, 0.1) 100%);
+            border: 1px solid var(--blue);
+            border-radius: 16px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ai-banner-text h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-banner-text p {
+            color: var(--grey-400);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--grey-300);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-values {
+            list-style: none;
+        }
+
+        .about-values li {
+            padding: 0.75rem 0;
+            color: var(--grey-300);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--grey-800);
+        }
+
+        .about-values li:last-child {
+            border-bottom: none;
+        }
+
+        .about-values li .val-icon {
+            color: var(--blue);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .about-values li strong {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item .ci-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .contact-item h4 {
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p {
+            color: var(--grey-400);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--grey-800);
+            border: 1px solid var(--grey-700);
+            border-radius: 10px;
+            color: var(--grey-100);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px var(--blue-glow);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--grey-500);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .ai-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="#" class="nav-logo">
+        <span class="nav-logo-text"><span>OC</span>Tech</span>
+    </a>
+    <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="https://ai.overclockedtech.net" target="_blank">OC-AI ⚡</a>
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">
+        🏠 Family Owned · 📍 McDonough, GA · <span>27+ Years Experience</span>
+    </div>
+    <h1>Technology that works. <span class="accent">People who care.</span></h1>
+    <p>Computer repair, networking, low voltage, and fiber installation — backed by 27 years of experience and industry certifications. We show up, fix it right, and explain it in plain English.</p>
+    <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary btn-large">Get a Free Quote</a>
+        <a href="#services" class="btn btn-secondary btn-large">Our Services</a>
+    </div>
+    <div class="certs">
+        <div class="cert-badge"><span>🏅</span> Microsoft Certified</div>
+        <div class="cert-badge"><span>🏅</span> CompTIA A+</div>
+        <div class="cert-badge"><span>🏅</span> CompTIA Net+</div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section style="background:var(--grey-850);border-top:1px solid var(--grey-800);border-bottom:1px solid var(--grey-800);padding:3rem 2rem;">
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-number">27+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24hr</div>
+                <div class="stat-label">Response Time</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="container">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Full-service technology solutions.</h2>
+        <p class="section-subtitle">From a single computer repair to a full building network buildout — we handle it all.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Computer Repair</h3>
+                <p>Diagnostics, virus removal, hardware upgrades, data recovery, and OS reinstalls. PCs, laptops, and Macs. We fix what others can't — and explain what went wrong so it doesn't happen again.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Networking</h3>
+                <p>Home and business network design, installation, and troubleshooting. Wi-Fi optimization, router/switch configuration, VPNs, and security. Reliable connectivity, guaranteed.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔌</div>
+                <h3>Low Voltage</h3>
+                <p>Structured cabling, Cat5e/Cat6 runs, phone systems, security cameras, access control, and audio/video wiring. Clean installs, labeled panels, done right the first time.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔗</div>
+                <h3>Fiber Installation</h3>
+                <p>Single-mode and multi-mode fiber optic installation, termination, and testing. Building-to-building runs, backbone infrastructure, and high-speed connectivity for businesses that need it.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>IT Consulting</h3>
+                <p>Technology assessments, infrastructure planning, vendor management, and project oversight. We help businesses make smart technology decisions without the enterprise price tag.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📺</div>
+                <h3>POS & Commercial</h3>
+                <p>Point-of-sale terminal installation and upgrades, commercial display mounting, and digital signage setup. Experienced with retail, pharmacy, and assisted living environments.</p>
+            </div>
+        </div>
+
+        <!-- AI Banner -->
+        <div class="ai-banner">
+            <div class="ai-banner-text">
+                <h3>🆕 Introducing OC-AI — Personal AI Assistants</h3>
+                <p>We're bringing the power of AI to everyday people. A personal AI assistant that lives on a device in your home — always on, always private, always yours. Built and configured by us.</p>
+            </div>
+            <a href="https://ai.overclockedtech.net" target="_blank" class="btn btn-primary btn-large" style="white-space:nowrap;">Explore OC-AI →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--grey-850);border-top:1px solid var(--grey-800);border-bottom:1px solid var(--grey-800);">
+    <div class="container">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Family owned. Locally operated. Nationally experienced.</h2>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Overclocked Technologies was built on a simple idea: technology should work for you, not against you. Founded by Stacey McDonald, we bring over 27 years of hands-on experience to every job — from fixing a single laptop to wiring an entire building.</p>
+                <p>We're based in McDonough, GA, just south of Atlanta, but our work has taken us across the country. We've handled projects in Arizona, managed IT for assisted living communities, and upgraded POS systems for major retailers.</p>
+                <p>We're not a faceless corporation. When you call us, you talk to us. When we show up, we explain what we're doing and why. And when we leave, everything works.</p>
+            </div>
+            <div>
+                <ul class="about-values">
+                    <li>
+                        <span class="val-icon">⚡</span>
+                        <div><strong>Fast Response</strong><br>We respond within 24 hours and schedule at your convenience — including evenings and weekends when needed.</div>
+                    </li>
+                    <li>
+                        <span class="val-icon">🗣️</span>
+                        <div><strong>Plain English</strong><br>We diagnose, repair, and explain computer and networking problems in a way even the novice user can understand.</div>
+                    </li>
+                    <li>
+                        <span class="val-icon">🏠</span>
+                        <div><strong>On-Site Service</strong><br>We come to your home or office when it's convenient for you. No need to haul your equipment anywhere.</div>
+                    </li>
+                    <li>
+                        <span class="val-icon">🔒</span>
+                        <div><strong>Certified & Trusted</strong><br>Microsoft Certified Professionals and CompTIA A+ & Net+ certified technicians. Your technology is in good hands.</div>
+                    </li>
+                    <li>
+                        <span class="val-icon">💰</span>
+                        <div><strong>Honest Pricing</strong><br>No surprise fees, no unnecessary upsells. We quote it, we stick to it. If we can save you money, we will.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section>
+    <div class="container">
+        <div class="section-label">Who We Serve</div>
+        <h2 class="section-title">From your living room to your boardroom.</h2>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">🏠</div>
+                <h3>Home Users</h3>
+                <p>Computer running slow? Wi-Fi dead zones? Need a home office setup? We handle residential tech with the same care and expertise we bring to commercial clients.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">🏢</div>
+                <h3>Small Businesses</h3>
+                <p>Network buildouts, server setup, POS systems, security cameras. Everything a small business needs to run smoothly — without the enterprise contract.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">🏥</div>
+                <h3>Assisted Living & Healthcare</h3>
+                <p>Specialized experience with retirement communities and healthcare facilities. DirecTV systems, internet infrastructure, and low voltage installations designed for sensitive environments.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--grey-850);border-top:1px solid var(--grey-800);">
+    <div class="container">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Ready to get it fixed?</h2>
+        <p class="section-subtitle">Tell us what you need. Free estimates, fast response, no pressure.</p>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="ci-icon">📍</span>
+                    <div>
+                        <h4>Location</h4>
+                        <p>McDonough, GA 30252<br>Serving Henry County & the greater Atlanta metro area</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="ci-icon">📧</span>
+                    <div>
+                        <h4>Email</h4>
+                        <p>tron@mcdonald-net.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="ci-icon">🕐</span>
+                    <div>
+                        <h4>Hours</h4>
+                        <p>Monday – Friday: 9am – 6pm<br>Weekends: By appointment<br>Emergency service available</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="ci-icon">🚗</span>
+                    <div>
+                        <h4>Service Area</h4>
+                        <p>McDonough, Stockbridge, Locust Grove, Hampton, Jackson, and surrounding areas. Travel available for larger projects.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form action="https://formspree.io/f/xeelaljr" method="POST" class="contact-form">
+                <input type="hidden" name="_subject" value="Overclocked Technologies — Website Inquiry">
+                <div class="form-row">
+                    <input type="text" name="name" class="form-input" placeholder="Your Name *" required>
+                    <input type="tel" name="phone" class="form-input" placeholder="Phone Number">
+                </div>
+                <input type="email" name="email" class="form-input" placeholder="Email Address *" required>
+                <textarea name="message" class="form-textarea" placeholder="How can we help? Describe the issue or project..." required></textarea>
+                <input type="text" name="_gotcha" style="display:none">
+                <button type="submit" class="btn btn-primary btn-large" style="width:100%;justify-content:center;">Send Message</button>
+                <p style="font-size:0.8rem;color:var(--grey-500);text-align:center;">We respond within 24 hours. Usually much faster.</p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand"><span>OC</span>Tech</div>
+    <div class="footer-sub">Overclocked Technologies · Est. 1999 · McDonough, GA</div>
+    <div class="footer-location" style="margin-top:0.75rem;">
+        <a href="https://ai.overclockedtech.net" target="_blank" style="color:var(--blue);text-decoration:none;">OC-AI Personal AI →</a>
+    </div>
+    <div class="footer-location" style="margin-top:1rem;">© 2026 Overclocked Technologies. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
