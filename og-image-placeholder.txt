@@ -1,0 +1,20 @@
+OG Image Placeholder for Overclocked Technologies
+
+Create a 1200x630 image with:
+- Company logo/branding: "OCTech" or "Overclocked Technologies"
+- Text: "Computer Repair & IT Services"
+- Subtext: "27+ Years Experience • McDonough, GA"
+- Background: Dark theme matching website (#111318)
+- Accent: Blue (#5BA4D9)
+- Icons: Computer, network, tools
+
+Save as: og-image.jpg
+
+This image will appear when people share your website links on social media (Facebook, Twitter, LinkedIn, etc.)
+
+Tools to create:
+- Canva.com (free templates available)
+- Figma.com (free design tool)  
+- Or hire a quick design on Fiverr for $5-15
+
+Should match the professional branding of the website and clearly communicate your services.

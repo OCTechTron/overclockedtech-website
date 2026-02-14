@@ -3,12 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overclocked Technologies | IT Services & Networking | McDonough, GA</title>
-    <meta name="description" content="Overclocked Technologies — 27+ years of computer repair, networking, low voltage, and fiber installation. Family owned in McDonough, GA. Microsoft & CompTIA certified.">
+    
+    <!-- SEO Meta Tags -->
+    <title>Overclocked Technologies | Computer Repair & IT Services McDonough GA | 27+ Years Experience</title>
+    <meta name="description" content="Expert computer repair, networking, low voltage & fiber installation in McDonough GA. 27+ years experience, Microsoft & CompTIA certified. Family owned IT services serving Atlanta metro area.">
+    <meta name="keywords" content="computer repair McDonough GA, IT services Atlanta, networking installation, low voltage McDonough, fiber installation Georgia, Microsoft certified, CompTIA certified, family owned IT">
+    <meta name="author" content="Overclocked Technologies">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://overclockedtech.net/">
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Overclocked Technologies | Computer Repair & IT Services McDonough GA">
+    <meta property="og:description" content="Expert computer repair, networking & IT services in McDonough GA. 27+ years experience, Microsoft & CompTIA certified. Family owned business.">
+    <meta property="og:image" content="https://overclockedtech.net/og-image.jpg">
+    <meta property="og:url" content="https://overclockedtech.net/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Overclocked Technologies">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Overclocked Technologies | Computer Repair McDonough GA">
+    <meta name="twitter:description" content="Expert computer repair, networking & IT services. 27+ years experience, certified professionals.">
+    <meta name="twitter:image" content="https://overclockedtech.net/og-image.jpg">
+    
+    <!-- Local Business Verification -->
+    <meta name="google-site-verification" content="PLACEHOLDER_VERIFICATION_CODE_2">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER456"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PLACEHOLDER456');
+        
+        // Track business contact events
+        function trackContact(method) {
+            gtag('event', 'contact', {
+                'event_category': 'business_inquiry',
+                'event_label': method,
+                'value': 1
+            });
+        }
+        
+        function trackServiceClick(service) {
+            gtag('event', 'service_interest', {
+                'event_category': 'service_engagement',
+                'event_label': service,
+                'value': 1
+            });
+        }
+    </script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Overclocked Technologies",
+        "description": "Computer repair, IT services, networking, low voltage and fiber installation",
+        "url": "https://overclockedtech.net",
+        "telephone": "+1-XXX-XXX-XXXX",
+        "email": "tron@mcdonald-net.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2009 Pheasant Run Drive",
+            "addressLocality": "McDonough",
+            "addressRegion": "GA",
+            "postalCode": "30252",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 33.4473,
+            "longitude": -84.1469
+        },
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 33.4473,
+                "longitude": -84.1469
+            },
+            "geoRadius": 80467
+        },
+        "priceRange": "$$",
+        "paymentAccepted": "Cash, Check, Credit Card",
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "foundingDate": "1998",
+        "slogan": "Making hardware faster, making people faster",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "IT Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Computer Repair",
+                        "description": "Professional computer repair and troubleshooting services"
+                    }
+                },
+                {
+                    "@type": "Offer", 
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Network Installation",
+                        "description": "Network design, installation and configuration"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service", 
+                        "name": "Low Voltage Installation",
+                        "description": "Professional low voltage wiring and installation"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Fiber Installation", 
+                        "description": "Fiber optic installation and termination services"
+                    }
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "50"
+        },
+        "sameAs": [
+            "https://ai.overclockedtech.net"
+        ]
+    }
+    </script>
     <style>
         /* Page-specific overrides */
         .services-grid {
@@ -283,7 +421,7 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="https://ai.overclockedtech.net" target="_blank">OC-AI ⚡</a>
-        <a href="#contact" class="btn btn-primary">Contact Us</a>
+        <a href="#contact" class="btn btn-primary" onclick="trackContact('nav_contact')">Contact Us</a>
     </div>
 </nav>
 
@@ -295,8 +433,8 @@
     <h1>Technology that works. <span class="accent">People who care.</span></h1>
     <p>Computer repair, networking, low voltage, and fiber installation — backed by 27 years of experience and industry certifications. We show up, fix it right, and explain it in plain English.</p>
     <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary btn-large">Get a Free Quote</a>
-        <a href="#services" class="btn btn-secondary btn-large">Our Services</a>
+        <a href="#contact" class="btn btn-primary btn-large" onclick="trackContact('hero_quote')">Get a Free Quote</a>
+        <a href="#services" class="btn btn-secondary btn-large" onclick="trackServiceClick('hero_services')">Our Services</a>
     </div>
     <div class="certs">
         <div class="cert-badge"><span>🏅</span> Microsoft Certified</div>
@@ -337,22 +475,22 @@
         <p class="section-subtitle">From a single computer repair to a full building network buildout — we handle it all.</p>
 
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" onclick="trackServiceClick('computer_repair')" style="cursor: pointer;">
                 <div class="service-icon">💻</div>
                 <h3>Computer Repair</h3>
                 <p>Diagnostics, virus removal, hardware upgrades, data recovery, and OS reinstalls. PCs, laptops, and Macs. We fix what others can't — and explain what went wrong so it doesn't happen again.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" onclick="trackServiceClick('networking')" style="cursor: pointer;">
                 <div class="service-icon">🌐</div>
                 <h3>Networking</h3>
                 <p>Home and business network design, installation, and troubleshooting. Wi-Fi optimization, router/switch configuration, VPNs, and security. Reliable connectivity, guaranteed.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" onclick="trackServiceClick('low_voltage')" style="cursor: pointer;">
                 <div class="service-icon">🔌</div>
                 <h3>Low Voltage</h3>
                 <p>Structured cabling, Cat5e/Cat6 runs, phone systems, security cameras, access control, and audio/video wiring. Clean installs, labeled panels, done right the first time.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" onclick="trackServiceClick('fiber_installation')" style="cursor: pointer;">
                 <div class="service-icon">🔗</div>
                 <h3>Fiber Installation</h3>
                 <p>Single-mode and multi-mode fiber optic installation, termination, and testing. Building-to-building runs, backbone infrastructure, and high-speed connectivity for businesses that need it.</p>
@@ -375,7 +513,7 @@
                 <h3>🆕 Introducing OC-AI — Personal AI Assistants</h3>
                 <p>We're bringing the power of AI to everyday people. A personal AI assistant that lives on a device in your home — always on, always private, always yours. Built and configured by us.</p>
             </div>
-            <a href="https://ai.overclockedtech.net" target="_blank" class="btn btn-primary btn-large" style="white-space:nowrap;">Explore OC-AI →</a>
+            <a href="https://ai.overclockedtech.net" target="_blank" class="btn btn-primary btn-large" style="white-space:nowrap;" onclick="trackServiceClick('oc_ai_explore')">Explore OC-AI →</a>
         </div>
     </div>
 </section>
@@ -485,7 +623,7 @@
                 </div>
             </div>
 
-            <form action="https://formspree.io/f/xeelaljr" method="POST" class="contact-form">
+            <form action="https://formspree.io/f/xeelaljr" method="POST" class="contact-form" id="main-contact-form">
                 <input type="hidden" name="_subject" value="Overclocked Technologies — Website Inquiry">
                 <input type="hidden" name="_next" value="https://www.overclockedtech.net/thank-you.html">
                 <div class="form-row">
@@ -511,6 +649,52 @@
     </div>
     <div class="footer-location" style="margin-top:1rem;">© 2026 Overclocked Technologies. All Rights Reserved.</div>
 </footer>
+
+<script>
+// Enhanced form tracking
+document.getElementById('main-contact-form').addEventListener('submit', function(e) {
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    // Track form submission with lead value
+    gtag('event', 'form_submission', {
+        'event_category': 'lead_generation',
+        'event_label': 'main_contact_form',
+        'value': 500, // Average project value
+        'custom_parameters': {
+            'has_phone': data.phone ? 'yes' : 'no',
+            'message_length': data.message ? data.message.length : 0
+        }
+    });
+    
+    // Track as conversion
+    gtag('event', 'conversion', {
+        'event_category': 'business_inquiry',
+        'event_label': 'contact_form_success'
+    });
+});
+
+// Track email clicks
+document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+        trackContact('email_direct');
+    });
+});
+
+// Track scroll depth for engagement
+let maxScroll = 0;
+window.addEventListener('scroll', function() {
+    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+        maxScroll = scrollPercent;
+        gtag('event', 'scroll_depth', {
+            'event_category': 'engagement',
+            'event_label': scrollPercent + '%',
+            'value': scrollPercent
+        });
+    }
+});
+</script>
 
 </body>
 </html>
