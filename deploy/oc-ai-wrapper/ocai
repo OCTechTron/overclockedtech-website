@@ -1,0 +1,165 @@
+#!/bin/bash
+# ============================================================================
+# ocai — OC-AI Command Line Interface
+# Overclocked Technologies
+#
+# White-label wrapper around OpenClaw. Client-facing CLI.
+# ============================================================================
+
+VERSION="1.0.0"
+PRODUCT="OC-AI"
+COMPANY="Overclocked Technologies"
+
+# Colors
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+# Find openclaw binary
+OPENCLAW=$(which openclaw 2>/dev/null)
+if [[ -z "$OPENCLAW" ]]; then
+    # Check common locations
+    for path in /opt/homebrew/bin/openclaw /usr/local/bin/openclaw /usr/bin/openclaw; do
+        if [[ -f "$path" ]]; then
+            OPENCLAW="$path"
+            break
+        fi
+    done
+fi
+
+if [[ -z "$OPENCLAW" ]]; then
+    echo -e "${RED}Error: OC-AI engine not found. Please contact Overclocked Technologies.${NC}"
+    exit 1
+fi
+
+show_banner() {
+    echo -e "${BOLD}"
+    echo "  ╔═══════════════════════════════════╗"
+    echo "  ║           OC-AI v${VERSION}            ║"
+    echo "  ║     Overclocked Technologies      ║"
+    echo "  ╚═══════════════════════════════════╝"
+    echo -e "${NC}"
+}
+
+show_help() {
+    show_banner
+    echo "  Usage: ocai <command>"
+    echo ""
+    echo "  Commands:"
+    echo "    status      Show AI assistant status"
+    echo "    start       Start your AI assistant"
+    echo "    stop        Stop your AI assistant"
+    echo "    restart     Restart your AI assistant"
+    echo "    logs        View recent activity logs"
+    echo "    update      Update to the latest version"
+    echo "    version     Show version information"
+    echo "    support     Show support contact information"
+    echo ""
+}
+
+cmd_status() {
+    echo -e "${BLUE}Checking OC-AI status...${NC}"
+    echo ""
+    
+    # Gateway status
+    if $OPENCLAW gateway status &>/dev/null; then
+        echo -e "  AI Assistant:  ${GREEN}● Online${NC}"
+    else
+        echo -e "  AI Assistant:  ${RED}● Offline${NC}"
+    fi
+    
+    # System info
+    echo "  Uptime:        $(uptime -p 2>/dev/null || uptime | sed 's/.*up /up /' | sed 's/,.*//')"
+    echo "  Disk:          $(df -h / | tail -1 | awk '{print $4 " free"}')"
+    
+    # Check if launchd service is loaded
+    if launchctl list | grep -q "com.overclocked.openclaw" 2>/dev/null; then
+        echo -e "  Auto-start:    ${GREEN}● Enabled${NC}"
+    else
+        echo -e "  Auto-start:    ${YELLOW}● Disabled${NC}"
+    fi
+    
+    echo ""
+}
+
+cmd_start() {
+    echo -e "${BLUE}Starting OC-AI...${NC}"
+    $OPENCLAW gateway start
+    echo -e "${GREEN}OC-AI is online.${NC}"
+}
+
+cmd_stop() {
+    echo -e "${YELLOW}Stopping OC-AI...${NC}"
+    $OPENCLAW gateway stop
+    echo "OC-AI is offline."
+}
+
+cmd_restart() {
+    echo -e "${BLUE}Restarting OC-AI...${NC}"
+    $OPENCLAW gateway stop 2>/dev/null
+    sleep 2
+    $OPENCLAW gateway start
+    echo -e "${GREEN}OC-AI is back online.${NC}"
+}
+
+cmd_logs() {
+    LOG_FILE="$HOME/.openclaw/logs/gateway-stderr.log"
+    if [[ -f "$LOG_FILE" ]]; then
+        echo -e "${BLUE}Recent OC-AI activity:${NC}"
+        echo ""
+        tail -30 "$LOG_FILE"
+    else
+        echo "No logs found."
+    fi
+}
+
+cmd_update() {
+    echo -e "${BLUE}Updating OC-AI...${NC}"
+    echo ""
+    npm update -g openclaw 2>/dev/null
+    echo ""
+    echo -e "${GREEN}Update complete.${NC}"
+    echo "Run 'ocai restart' to apply the update."
+}
+
+cmd_version() {
+    show_banner
+    echo "  OC-AI Version:    $VERSION"
+    echo "  Engine:           $($OPENCLAW --version 2>/dev/null || echo 'unknown')"
+    echo "  Node.js:          $(node --version 2>/dev/null || echo 'unknown')"
+    echo "  Platform:         $(uname -s) $(uname -m)"
+    echo ""
+}
+
+cmd_support() {
+    echo ""
+    echo -e "${BOLD}  Overclocked Technologies — Support${NC}"
+    echo ""
+    echo "  📧  tron@mcdonald-net.com"
+    echo "  🌐  overclocked.tech"
+    echo ""
+    echo "  We can fix most issues remotely."
+    echo "  Include 'ocai status' output when contacting support."
+    echo ""
+}
+
+# Route commands
+case "${1:-help}" in
+    status)   cmd_status ;;
+    start)    cmd_start ;;
+    stop)     cmd_stop ;;
+    restart)  cmd_restart ;;
+    logs)     cmd_logs ;;
+    update)   cmd_update ;;
+    version)  cmd_version ;;
+    support)  cmd_support ;;
+    help|--help|-h) show_help ;;
+    *)
+        echo -e "${RED}Unknown command: $1${NC}"
+        echo "Run 'ocai help' for available commands."
+        exit 1
+        ;;
+esac
