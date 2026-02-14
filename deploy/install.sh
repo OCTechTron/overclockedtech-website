@@ -27,13 +27,13 @@ cd "$DEPLOY_DIR"
 echo -e "${BLUE}📥 Downloading deployment scripts...${NC}"
 
 # Download all deployment scripts
-curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/mac-mini-deployment/01-macos-prep.sh > 01-macos-prep.sh
-curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/mac-mini-deployment/02-openclaw-install.sh > 02-openclaw-install.sh
-curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/mac-mini-deployment/03-telegram-setup.sh > 03-telegram-setup.sh
-curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/mac-mini-deployment/04-gmail-setup.sh > 04-gmail-setup.sh
-curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/mac-mini-deployment/05-personalize.sh > 05-personalize.sh
-curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/mac-mini-deployment/06-harden.sh > 06-harden.sh
-curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/mac-mini-deployment/README.md > README.md
+curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/deploy/01-macos-prep.sh > 01-macos-prep.sh
+curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/deploy/02-openclaw-install.sh > 02-openclaw-install.sh
+curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/deploy/03-telegram-setup.sh > 03-telegram-setup.sh
+curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/deploy/04-gmail-setup.sh > 04-gmail-setup.sh
+curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/deploy/05-personalize.sh > 05-personalize.sh
+curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/deploy/06-harden.sh > 06-harden.sh
+curl -fsSL https://raw.githubusercontent.com/OCTechTron/overclockedtech-website/main/deploy/README.md > README.md
 
 # Make scripts executable
 chmod +x *.sh
